@@ -1,4 +1,46 @@
 <html>
+    <script>
+        
+        function dpicker_today(){
+            var date=document.getElementById("dpicker1").value
+            var year= date.slice(0,4) 
+            var month = date.slice(5,7)
+            var day = date.slice(8,10)
+
+            var today=new Date()
+            var dd = today.getDate();
+
+var mm = today.getMonth()+1; 
+var yyyy = today.getFullYear();
+if(dd<10) 
+{
+    dd='0'+dd;
+} 
+
+if(mm<10) 
+{
+    mm='0'+mm;
+} 
+            var date1 = new Date(month+"/"+day+"/"+year); 
+            var date2 = new Date(mm+"/"+dd+"/"+yyyy); 
+  
+            // To calculate the time difference of two dates 
+            var Difference_In_Time = date1.getTime() - date2.getTime(); 
+  
+
+            var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+            console.log(Difference_In_Days)
+
+            // Example
+            alert("selisih: "+Math.abs(Difference_In_Days)+" hari")
+        }
+        function selisih2(){
+            var date1=document.getElementById("dpicker1").value
+            var date2=document.getElementById("dpicker2").value
+            var selisih=Math.abs((new Date(date1)-new Date(date2))/ (1000 * 3600 * 24))
+            alert("selisih: "+selisih+" hari")
+        }
+    </script>
     <p>Lois Fernando / C14180217</p>
     <label for="cars">Choose a car:</label>
     <select name="cars" id="cars">
@@ -14,4 +56,72 @@
     <label for="vehicle2"> I have a car</label><br>
     <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
     <label for="vehicle3"> I have a boat</label>
+    <input type="date" id="dpicker1">
+    <input type="date"id="dpicker2">
+    <!-- <button onclick="dpicker_today()">selisih hari ini</button> -->
+    <button onclick="selisih2()">menghitung perbedaan datepicker 1 dan date picker 2</button>
+
+    <h3>yang dipelajari</h3>
+    <p>git commit
+        =buat commit
+        
+        git branch namaBranch
+        = buat cabang
+        
+        git checkout namaBranch; git commit  (git switch = git checkout)
+        = untuk meletakkan asterik(*) ke posisi namaBranch
+        
+        git checkout - b namaBranch
+        = untuk buat branch kemudian langsung checkout
+        
+        git merge
+        = biasanya ketika ingin membuat fitur baru pada tiap branch kemudian digabungkan
+        
+        
+        git rebase namaBranch
+        = hampir sama dengan merge tetapi setelah merge, tidak menyatukan commit tetapi akan membentuk commit secara linear dibawah nama branch
+        = git rebase bisa juga untuk memindahkan ke branch tujuan jika posisinya linear
+        
+        git checkout c1
+        = akan pindah commit ke c1
+        
+        HEAD
+        = commit yang baru saja di checked (pake head supaya nama branch tidak perlu bergerak)
+        
+        git log
+        = untuk lihat daftar commit(?)
+        
+        ^ (git checkout main^ atay main^^)
+        = pindah ke commit bagian atas
+        
+        ~nomor
+        =bergerak keatas beberapa kali
+        
+        git branch -f main HEAD~3
+        = akan memindah kan brbanch main keatas sebanyak 3x
+        
+        git revert
+        =akan menampilkan riwayat reset
+        
+        git reset, git reset HEAD~1
+        =akan menghapus commit sekarang, dan posisi akan pindah ke atas sebanyak 1x
+        
+        
+        git cherry-pick 
+        =untuk coppy commit1-commitn ke lokasi sekarang
+        
+        rebase -i
+        = interactive gui
+        
+        git rebase -i HEAD~4
+        =mengambil 4 parent dari posisi sekarang
+        
+        git commit --amend
+        =membuat sedikit modifikasi
+        
+        git tag v1 c1
+        = memberikan tag v1 pada c1
+        
+        git describe
+        </p>
 </html>
