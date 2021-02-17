@@ -34,8 +34,16 @@ if(mm<10)
             // Example
             alert("selisih: "+Math.abs(Difference_In_Days)+" hari")
         }
+        function selisih2(){
+            var date1=document.getElementById("dpicker1").value
+            var date2=document.getElementById("dpicker2").value
+            var selisih=Math.abs((new Date(date1)-new Date(date2))/ (1000 * 3600 * 24))
+            alert("selisih: "+selisih+" hari")
+        }
     </script>
     <p>Lois Fernando / C14180217</p>
     <input type="date" id="dpicker1">
-    <button onclick="dpicker_today()">selisih hari ini</button>
+    <input type="date"id="dpicker2">
+    <!-- <button onclick="dpicker_today()">selisih hari ini</button> -->
+    <button onclick="selisih2()">menghitung perbedaan datepicker 1 dan date picker 2</button>
 </html>
